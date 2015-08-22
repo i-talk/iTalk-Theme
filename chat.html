@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="static/bootstrap.css">
+<link rel="stylesheet" href="http://apps.bdimg.com/libs/animate.css/3.1.0/animate.min.css">
 <style type="text/css">
 *{margin:0;padding:0; outline: none;}
 html,body{
@@ -264,6 +265,9 @@ border-bottom: 1px solid transparent;
     }
     function xiaodu(str){
       var url = "https://sp0.baidu.com/yLsHczq6KgQFm2e88IuM_a/s?sample_name=bear_brain&request_query=" + str;
+      var h = '<li class="list-group-item animated fadeInUp"><div class="row chat-userinfo"><span class="avatar">你</span><b>你</b> <span style="color:#655F5F;">你</span></div><div class="chat-item"><p class="chat-item-content">'+ str +'</p><div class="chat-item-tools gray"><div class="col-md-6 " style="padding-left:0;"></div><div class="col-md-6 chat-item-tools-toolbar"><span>关注作者</span><span>收藏</span><span>分享</span><span>赞</span><span>回复</span></div></div></div></li>';
+      $(".chat-list").append(h).scrollTop( $('.chat-list')[0].scrollHeight );
+      $("textarea").val("");
       $.ajax({
         url:url,
         type:"get",
@@ -272,9 +276,13 @@ border-bottom: 1px solid transparent;
         success:function(data){
           ret = data.result_list[0].result_content
           ret = eval('('+ret+')');
-          var h = '<li class="list-group-item"><div class="row chat-userinfo"><span class="avatar">度</span><b>百小度</b> <span style="color:#655F5F;">我叫小度</span></div><div class="chat-item"><p class="chat-item-content">'+ ret.answer +'</p><div class="chat-item-tools gray"><div class="col-md-6 " style="padding-left:0;"></div><div class="col-md-6 chat-item-tools-toolbar"><span>关注作者</span><span>收藏</span><span>分享</span><span>赞</span><span>回复</span></div></div></div></li>';
-          $(".chat-list").append(h).scrollTop( $('.chat-list')[0].scrollHeight );
-          $("textarea").val("");
+          var content = "";
+          if(ret.hasOwnProperty("img")){
+            content += "<img style='margin-right:15px;' src='"+ret.img+"'>";
+          }
+          content += ret.answer;
+          var r = '<li class="list-group-item  animated fadeInUp"><div class="row chat-userinfo"><span class="avatar">度</span><b>百小度</b> <span style="color:#655F5F;">我叫小度</span></div><div class="chat-item"><p class="chat-item-content">'+ content +'</p><div class="chat-item-tools gray"><div class="col-md-6 " style="padding-left:0;"></div><div class="col-md-6 chat-item-tools-toolbar"><span>关注作者</span><span>收藏</span><span>分享</span><span>赞</span><span>回复</span></div></div></div></li>';
+          $(".chat-list").append(r).scrollTop( $('.chat-list')[0].scrollHeight );
         }
       });
     }
