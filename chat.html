@@ -75,6 +75,9 @@ input,input:active{outline:none}
   padding-left: 10px;
 
 }
+.list-group-flush .list-group-item:nth-child(even){
+  background-color:#f8f8f8;
+}
 .list-group-flush .list-group-item:last-child {
   border-bottom:none;
 }
@@ -226,8 +229,16 @@ border-bottom: 1px solid transparent;
 
       <textarea placeholder="说些什么？"  class="form-control" id="exampleTextarea" rows="2"></textarea>
       <div>
-        <div class=" col-md-10"></div>
+        <div class=" col-md-10">
+          <label class="radio-inline">
+    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> 按回车发送
+  </label>
+  <label class="radio-inline">
+    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
+  </label>
+        </div>
         <div class=" col-md-2">
+
           <button type="button" onclick="send();"  class="btn btn-primary btn-sm chat-button">发送</button>
         </div>
 
@@ -259,6 +270,15 @@ border-bottom: 1px solid transparent;
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="static/bootstrap.js"></script>
     <script type="text/javascript">
+    $(document).ready(function(){
+      $("textarea").keydown(function(e){
+        var curKey = e.which;
+        if(curKey == 13){
+          send();
+          return false;
+        }
+      });
+    });
     function send(){
       var content = $("textarea").val();
       xiaodu(content);
