@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="static/bootstrap.css">
+<style type="text/css">
+*{margin:0;padding:0; outline: none;}
+html,body{
+  font-family: RobotoDraft,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
+      font-size: 14px;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+}
+a{color:black;}
+:focus {
+  outline: 0;
+  }
+input,input:active{outline:none}
+.row{
+  margin:0;padding:0;
+}
+.wrap{
+  height:500px;
+}
+.chat{
+      padding: 0;
+}
+.chat .card{
+  height:100%;
+  margin-bottom:0;
+  position: relative;
+  overflow-y: auto;
+}
+
+.chat-input{
+
+}
+.chat-input textarea{
+  margin-top: 1px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      box-sizing: border-box;
+      width: 92%;
+      max-width: 100%;
+      height: 4pc;
+      margin-bottom: 8px;
+      padding: 7px;
+      resize: none;
+      border: none;
+      border-radius: 2px;
+      outline: 0;
+      background-color: #fff;
+      box-shadow: inset 0 0 0 1px rgba(81,109,144,.24);
+      margin-left: 39px;
+}
+.chat-list{
+  height:450px;
+  overflow-y: auto;
+}
+
+
+.list-group-flush .list-group-item{
+  border: 0;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 22px;
+  padding-top: 5px;
+  border-bottom: 1px solid #EAE9E9;
+  padding-left: 10px;
+
+}
+.list-group-flush .list-group-item:last-child {
+  border-bottom:none;
+}
+.chat-item{
+  padding: 10px 15px;
+    padding-left: 41px;
+}
+
+.chat-userinfo{
+  padding:5px;
+      margin-top: 10px;
+      font-size: 16px;
+}
+
+.avatar{
+  padding: 5px 7px;
+  width: 20px;
+  height: 20px;
+  color: white;
+  border-radius: 100%;
+  background-color: #f9a43e;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.gray{
+  color:#655F5F;
+  font-size:13px;
+}
+.chat-item-tools-toolbar{
+  text-align:right;
+}
+.chat-item-tools-toolbar span{
+  margin-left:15px;
+}
+
+.chat-item-content{
+  line-height: 24px;
+}
+.nav-tabs{
+  background-color:#f8f8f8;
+}
+.chat-button{
+  background-color: orange;
+    padding: 4px 24px;
+    font-size: 16px;
+}
+
+.like-topic{
+  background-color: #F9F9F9;
+    border: 1px solid #E4E3E3;
+}
+
+
+.i-side{
+  background-color:#f8f8f8;
+  width: 16.666667%;
+  height:100%;
+  position:fixed;
+  left:0;
+  top:0;
+  border-right:1px solid #ccc;
+}
+.i-side-userinfo{
+  padding:10px;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-link.active:focus, .nav-tabs .nav-link.active:hover, .nav-tabs .nav-item.open .nav-link, .nav-tabs .nav-item.open .nav-link:focus, .nav-tabs .nav-item.open .nav-link:hover{
+  border:0;
+  font-weight:bold;
+  background-color: orange;
+color: white;
+border-radius: 0;
+border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+}
+</style>
+  </head>
+  <body>
+    <div class="i-side">
+      <ul class="list-group">
+        <a class="list-group-item" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">用户名</a>
+        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="i-side-userinfo">用户个人信息</div>
+        </div>
+        <li class="list-group-item">我的关注</li>
+        <li class="list-group-item">好友</li>
+        <li class="list-group-item">探索发现</li>
+        <li class="list-group-item">我的收藏</li>
+        <li class="list-group-item">设置</li>
+      </ul>
+
+    </div>
+    <div class="row wrap">
+
+      <div class="col-xs-12 col-md-2">
+      </div>
+      <div class="col-xs-12 col-md-6 chat">
+              <div class="card" style="border-radius:0;">
+                <ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" href="#home" role="tab" data-toggle="tab">话题 ： 天津大爆炸</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#profile" role="tab" data-toggle="tab">精华</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#messages" role="tab" data-toggle="tab">用户</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#settings" role="tab" data-toggle="tab">更多</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div role="tabpanel" class="tab-pane active" id="home">
+    <ul class="list-group list-group-flush chat-list">
+      <!-- <li class="list-group-item">
+      <div class="row chat-userinfo">
+        <span class="avatar">未</span><b>问照顾</b> <span style="color:#655F5F;">可穿戴设备不再仅仅局限于智能手表</span>
+      </div>
+      <div class="chat-item">
+        <p class="chat-item-content">
+        有光的地方就有影，有木叶的地方就有根。在移动互联网的今天，智能手机扮演着不可替代的角色。但我们在享受智能手机所带来的创新与便利时，是否考虑过废旧 手机对环境所造成的影响？据统计一块手机电池可以污染三个标准游泳池的水量
+      </p>
+        <div class="chat-item-tools gray">
+            <div class="col-md-6 " style="padding-left:0;">发布于2015-05-03 23:22:11</div>
+            <div class="col-md-6 chat-item-tools-toolbar"><span>关注作者</span><span>收藏</span><span>分享</span><span>赞</span><span>回复</span></div>
+        </div>
+      </div>
+      </li> -->
+      <li class="list-group-item">
+      <div class="row chat-userinfo">
+        <span class="avatar">话</span><b>话题机器人</b> <span style="color:#655F5F;">可以自动回复</span>
+      </div>
+      <div class="chat-item">
+        <p class="chat-item-content">
+        机器人可以自动回复，点击发送
+      </p>
+        <div class="chat-item-tools gray">
+            <div class="col-md-6 " style="padding-left:0;">发布于2015-05-03 23:22:11</div>
+            <div class="col-md-6 chat-item-tools-toolbar"><span>关注作者</span><span>收藏</span><span>分享</span><span>赞</span><span>回复</span></div>
+        </div>
+      </div>
+      </li>
+
+    </ul>
+    <div class="chat-input">
+
+      <textarea placeholder="说些什么？"  class="form-control" id="exampleTextarea" rows="2"></textarea>
+      <div>
+        <div class=" col-md-10"></div>
+        <div class=" col-md-2">
+          <button type="button" onclick="send();"  class="btn btn-primary btn-sm chat-button">发送</button>
+        </div>
+
+    </div>
+</div>
+  </div>
+  <div role="tabpanel" class="tab-pane" id="profile">
+
+  </div>
+  <div role="tabpanel" class="tab-pane" id="messages">...</div>
+  <div role="tabpanel" class="tab-pane" id="settings">...</div>
+</div>
+
+
+
+
+        </div>
+    </div>
+
+<div class="col-md-4">
+  <div class="card card-block like-topic">
+  <h4 class="card-title">天津大爆炸</h4>
+  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  <a href="#" class="btn btn-primary">关注话题</a>
+</div>
+
+</div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="static/bootstrap.js"></script>
+    <script type="text/javascript">
+    function send(){
+      var content = $("textarea").val();
+      xiaodu(content);
+    }
+    function xiaodu(str){
+      var url = "https://sp0.baidu.com/yLsHczq6KgQFm2e88IuM_a/s?sample_name=bear_brain&request_query=" + str;
+      $.ajax({
+        url:url,
+        type:"get",
+        dataType:"JSONP",
+        crossDomain: true,
+        success:function(data){
+          ret = data.result_list[0].result_content
+          ret = eval('('+ret+')');
+          var h = '<li class="list-group-item"><div class="row chat-userinfo"><span class="avatar">度</span><b>百小度</b> <span style="color:#655F5F;">我叫小度</span></div><div class="chat-item"><p class="chat-item-content">'+ ret.answer +'</p><div class="chat-item-tools gray"><div class="col-md-6 " style="padding-left:0;"></div><div class="col-md-6 chat-item-tools-toolbar"><span>关注作者</span><span>收藏</span><span>分享</span><span>赞</span><span>回复</span></div></div></div></li>';
+          $(".chat-list").append(h).scrollTop( $('.chat-list')[0].scrollHeight );
+          $("textarea").val("");
+        }
+      });
+    }
+    </script>
+  </body>
+  </html>
